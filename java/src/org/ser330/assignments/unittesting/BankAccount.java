@@ -26,7 +26,7 @@ public class BankAccount {
     /**
      * @param amount
      */
-    public void Withdraw(int amount)
+    public void withdraw(int amount)
     {
         _balance += -amount;
     }
@@ -34,8 +34,13 @@ public class BankAccount {
     /**
      * @param amount
      */
-    public void Deposit(int amount)
+    public void deposit(int amount)
     {
         _balance += amount;
+    }
+
+    public int getBalance()
+    {
+        return _balance;
     }
 }

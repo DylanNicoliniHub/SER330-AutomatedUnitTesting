@@ -8,9 +8,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BankAccountTests {
     
     @Test
-    public void VerifyDeposit_WhenAllConditionsAreMet_ReturnsBalance()
+    public void VerifyWithdrawal_WhenAllConditionsAreMet_ReturnsBalance()
     {
-        int testVariable = 2;
-        assertEquals(2,testVariable);
+        // Arrange
+        BankAccount account = new BankAccount("1234567", 10);
+        int withdrawalAmount = 10;
+
+        // Act
+        account.withdraw(withdrawalAmount);
+        
+        // Assert
+        assertEquals(account.getBalance(), 0);
+    }
+
+    @Test
+    public void VerifyWithdrawal_WhenWithdrawalIsNegative_ReturnsBalance()
+    {
+        // Arrange
+        BankAccount account = new BankAccount("1234567", 10);
+        int withdrawalAmount = -10;
+
+        // Act
+        account.withdraw(withdrawalAmount);
+        
+        // Assert
+        assertEquals(0, account.getBalance());
     }
 }
